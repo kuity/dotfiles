@@ -6,6 +6,7 @@ font pango:System San Francisco 10
 for_window [class=".*"] border pixel 0
 gaps inner 10 
 gaps outer 0
+#gaps top 5
 smart_gaps on
 
 set $mod Mod4
@@ -165,6 +166,9 @@ bindsym Mod1+l exec --no-startup-id xset s activate
 # Use xbacklight to adjust brightness
 bindsym Mod1+plus exec xbacklight +5 
 bindsym Mod1+minus exec xbacklight -5 
+
+# Ranger
+bindsym $mod+r exec alacritty -e ranger
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
