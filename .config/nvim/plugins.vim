@@ -20,16 +20,8 @@ call plug#begin(stdpath('data').'/plugged')
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Unmanaged plugin (manually installed and updated)
 "Plug '~/my-prototype-plugin'
+Plug 'lervag/vimtex'
 Plug 'morhetz/gruvbox'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 " Initialize plugin system
 call plug#end()
-
-let g:impact_transbg=1
-"highlight Normal ctermbg=none
-"highlight NonText ctermbg=none
-let g:gruvbox_italic=1
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1 
-set termguicolors
-colorscheme gruvbox
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE

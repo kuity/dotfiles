@@ -157,8 +157,9 @@ exec_always --no-startup-id compton
 exec_always --no-startup-id nm-applet
 
 # Lock screen related stuff
-exec_always --no-startup-id xset s 120 120 
-exec_always --no-startup-id xset dpms 300 
+exec_always --no-startup-id xset s 200 200 
+exec_always --no-startup-id xset -dpms
+#exec_always --no-startup-id xset dpms 300 
 
 exec_always --no-startup-id xss-lock -n /usr/share/doc/xss-lock/dim-screen.sh -- i3lock -i /files/pictures/tm_diver_1366_768.png --nofork
 bindsym Mod1+l exec --no-startup-id xset s activate 
