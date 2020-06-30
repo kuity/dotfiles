@@ -1,0 +1,5 @@
+xterm*faceName: SauceCodePro Nerd Font Mono
+xterm*faceSize: 14
+xterm*renderFont: true
+xterm*background: Black
+xterm*foreground: grey
