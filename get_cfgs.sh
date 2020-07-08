@@ -1,8 +1,8 @@
 #!/bin/zsh
 
-ZSH_CUSTOM=/usr/share/oh-my-zsh/custom
+source custom_cfg.zsh
 
-cd /home/kuity/dotfiles 
+cd $HOME/dotfiles 
 if [ $? -ne 0 ]; then
   exit
 fi
@@ -10,20 +10,20 @@ fi
 echo "Copying dotfiles"
 # neovim
 rm .config/nvim/*
-cp ../.config/nvim/* .config/nvim/
+cp $HOME/.config/nvim/*.vim $HOME/.config/nvim/*.json .config/nvim/
 
 # tmux
-cp ../.tmux.conf .
+cp $HOME/.tmux.conf .
 
-# zsh
-cp ../.zshrc .
-cp $ZSH_CUSTOM/zsh_aliases.zsh .
+# zsh custom scripts
+cp $HOME/.zshrc .
+cp $ZSH_CUSTOM/*.zsh ./zsh_custom/
 
 # X
-cp ../.Xresources .
-cp ../.xinitrc .
+cp $HOME/.Xresources .
+cp $HOME/.xinitrc .
 
 # ranger
-cp ../.config/ranger/rc.conf .config/ranger/
+cp $HOME/.config/ranger/rc.conf .config/ranger/
 
 echo "Done copying dotfiles"
