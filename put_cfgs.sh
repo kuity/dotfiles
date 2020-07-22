@@ -22,7 +22,6 @@ cp .tmux.conf $HOME/
 echo "Putting zshrc"
 ./touchup.sh
 cp .zshrc $HOME/
-cp zsh_custom/*.zsh $ZSH_CUSTOM/
 
 # X 
 echo "Putting X config"

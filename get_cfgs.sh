@@ -16,11 +16,6 @@ cp $HOME/.config/nvim/*.vim $HOME/.config/nvim/*.json .config/nvim/
 echo "Copying tmux config"
 cp $HOME/.tmux.conf .
 
-# zsh custom scripts
-echo "zsh custom is $ZSH_CUSTOM"
-echo "Copying zsh custom files"
-cp $ZSH_CUSTOM/*.zsh ./zsh_custom/
-
 # X
 echo "Copying X files"
 cp $HOME/.Xresources .
