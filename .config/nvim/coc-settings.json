@@ -11,6 +11,7 @@
   ],
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
+  "python.jediEnabled": false,
   "snippets.ultisnips.directories": [
     "UltiSnips",
     "~/.config/nvim/utils/snips"

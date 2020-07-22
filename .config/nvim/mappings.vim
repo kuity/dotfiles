@@ -24,3 +24,10 @@ nnoremap <S-TAB> :bprevious<CR>
 
 " Set line numbers
 nnoremap <leader>n :set relativenumber!<CR>
+
+" Vim fugitive
+nnoremap <leader>g :G<CR>
+nnoremap <leader>gs :G status<CR>
+nnoremap <leader>ga :G add<CR>
+nnoremap <leader>gc :G commit<CR>
+nnoremap <leader>gp :G push<CR>

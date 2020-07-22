@@ -13,6 +13,7 @@ set shiftwidth=2
 set autoindent
 set smartindent
 set laststatus=0
+set number
 set relativenumber
 set wrap linebreak nolist
 set splitbelow
