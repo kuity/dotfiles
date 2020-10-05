@@ -1,2 +1,0 @@
-omz_path=/Users/lingzhang.jiang/.oh-my-zsh
-sed -i "s@<oh_my_zsh_dir>@${omz_path}@g" .zshrc 

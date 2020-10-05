@@ -9,29 +9,22 @@ fi
 
 echo "Putting dotfiles in dirs"
 
-#neovim
+# neovim
 echo "Putting neovim files"
 mkdir -p $HOME/.config/nvim
-cp -R .config/nvim $HOME/.config/
+cp .config/nvim/* $HOME/.config/nvim/
 
 # tmux
 echo "Putting tmux config"
 cp .tmux.conf $HOME/
 
 # zsh
-echo "Putting zshrc"
-./touchup.sh
-cp .zshrc $HOME/
+echo "Putting zsh files"
+cp oh_my_zsh/* $ZSH_CUSTOM/
 
 # X 
 echo "Putting X config"
 cp .Xresources $HOME/
 cp .xinitrc $HOME/
-
-# ranger
-echo "Putting ranger config"
-mkdir -p $HOME/.config/ranger
-cp -R .config/ranger/ $HOME/.config/ranger/
-
 
 echo "Done putting dotfiles in dirs"

@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
-let g:netrw_dirhist_6='/home/kuity/.config/i3blocks'
-let g:netrw_dirhist_5='/home/kuity/.config/nvim'
-let g:netrw_dirhist_4='/home/kuity/.i3'
-let g:netrw_dirhist_3='/home/kuity/.config/polybar'
-let g:netrw_dirhist_2='/etc/NetworkManager/conf.d'
-let g:netrw_dirhist_1='/home/kuity/.i3'
