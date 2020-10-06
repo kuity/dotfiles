@@ -90,3 +90,7 @@ nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 inoremap <C-v> <Esc>p "+p
+
+" escape insert mode
+inoremap jk <Esc>
+inoremap kj <Esc>
