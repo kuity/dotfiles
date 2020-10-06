@@ -13,6 +13,7 @@ echo "Putting dotfiles in dirs"
 echo "Putting neovim files"
 mkdir -p $HOME/.config/nvim
 cp .config/nvim/* $HOME/.config/nvim/
+cp .vimrc $HOME/.vimrc
 
 # tmux
 echo "Putting tmux config"
