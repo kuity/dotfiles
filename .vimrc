@@ -94,3 +94,15 @@ inoremap <C-v> <Esc>p "+p
 " escape insert mode
 inoremap jk <Esc>
 inoremap kj <Esc>
+
+" line numbers
+nnoremap <leader>n :set relativenumber!<CR>
+
+" Pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" netrw settings
+let g:netrw_winsize=25
