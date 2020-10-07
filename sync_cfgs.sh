@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 cd $HOME/dotfiles
-./get_configs.sh
+./get_cfgs.sh
 git add .
 git commit -m 'sync'
 git push
