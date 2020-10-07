@@ -106,3 +106,4 @@ nnoremap <C-l> <C-w>l
 
 " netrw settings
 let g:netrw_winsize=25
+let g:netrw_liststyle=3
