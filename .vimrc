@@ -2,7 +2,7 @@ filetype plugin indent on
 syntax enable
 
 set noerrorbells " no sound effects
-set hidden
+set hidden " a buffer is hidden when abandoned instead of unloaded
 set encoding=utf-8
 set tabstop=4 softtabstop=4 " 4 characters tab 
 set shiftwidth=4 " for arrow key shifting
@@ -12,7 +12,7 @@ set smartindent
 set laststatus=0
 set number
 set relativenumber
-set wrap linebreak nolist
+set nowrap linebreak nolist " do not line wrap ffs
 set noswapfile " do not create swap files
 set nobackup
 set undodir=~/.vim/undodir " keep an undo directory instead of backups
@@ -21,6 +21,8 @@ set incsearch " search while typing
 set splitbelow " default position for splitting
 set splitright
 set background=dark
+set noshowmode " Not required if using lightline
+set laststatus=2 " statusline
 
 " Colors
 if (has("nvim"))
@@ -45,8 +47,32 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'nanotech/jellybeans.vim'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
+" Color scheme
+" To set background color to terminal default
+let g:jellybeans_overrides = {
+\ 'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+if has ('termguicolors') && &termguicolors
+    let g:jellybeans_overrides['background']['guibg'] = 'none'
+endif
+
+colorscheme jellybeans
+
+" Lightline
+let g:lightline = {
+\ 'colorscheme': 'jellybeans',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'component_function': {
+\   'gitbranch': 'FugitiveHead'
+\ },
+\ }
 
 " FZF shortcuts
 " map: all modes nmap: normal mode only noremap: non-recursive map
@@ -77,25 +103,22 @@ let g:Hexokinase_optInPatterns = [
 \     'colour_names'
 \ ]
 
-" Other key remaps
-" Pane navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" Editing shortcuts
+nnoremap <CR> o<Esc>
+nnoremap <BS> O<Esc>
+inoremap jk <Esc> " escape insert mode
+inoremap kj <Esc> " escape insert mode
+nmap <C-s> :up<CR> " quick save
+inoremap <C-s> <Esc><C-S> " quick save from insert mode
+nnoremap <leader>w :w !sudo tee %<CR> " sudo write trick
 
-" Clipboard
+" Clipboard copy paste
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
-inoremap <C-v> <Esc>p "+p
 
-" escape insert mode
-inoremap jk <Esc>
-inoremap kj <Esc>
-
-" line numbers
+" line number toggling
 nnoremap <leader>n :set relativenumber!<CR>
 
 " Pane navigation
@@ -103,7 +126,26 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
 
 " netrw settings
 let g:netrw_winsize=25
 let g:netrw_liststyle=3
+
+" terminal mode stuff
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n> " exit terminal mode insert mode with esc key
+    tnoremap <C-q><Esc> <Esc> " input esc key while in terminal mode
+    highlight! link TermCursor Cursor
+    highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15 " style the terminal cursor
+endif
+
+nnoremap <leader>v :vsplit \| :terminal<CR>
+nnoremap <leader>h :split \| :terminal<CR>
