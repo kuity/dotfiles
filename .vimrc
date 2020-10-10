@@ -49,6 +49,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'nanotech/jellybeans.vim'
 Plug 'itchyny/lightline.vim'
+if has('nvim-0.5')
+Plug 'neovim/nvim-lspconfig'
+endif
 call plug#end()
 
 " Color scheme
@@ -150,3 +153,11 @@ endif
 
 nnoremap <leader>v :vsplit \| :terminal<CR>
 nnoremap <leader>h :split \| :terminal<CR>
+
+" lsp related
+if has('nvim-0.5')
+lua <<EOF
+require'nvim_lsp'.pyls.setup{}
+require'nvim_lsp'.rls.setup{}
+EOF
+endif
