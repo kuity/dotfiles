@@ -111,6 +111,7 @@ inoremap kj <Esc> " escape insert mode
 nmap <C-s> :up<CR> " quick save
 inoremap <C-s> <Esc><C-S> " quick save from insert mode
 nnoremap <leader>w :w !sudo tee %<CR> " sudo write trick
+nnoremap <leader>c :nohl<CR> " clear highlighting
 
 " Clipboard copy paste
 vnoremap <leader>y "+y
