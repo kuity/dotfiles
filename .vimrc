@@ -91,8 +91,8 @@ nnoremap <leader>gs :G status<CR>
 nnoremap <leader>ga :G add<CR>
 nnoremap <leader>gc :G commit<CR>
 nnoremap <leader>gp :G push<CR>
-nnoremap <leader>gh :diffget //3<CR> " For resolving merge conflicts
-nnoremap <leader>gf :diffget //2<CR> " For resolving merge conflicts
+nnoremap <leader>gh :diffget //3<CR>" For resolving merge conflicts
+nnoremap <leader>gf :diffget //2<CR>" For resolving merge conflicts
 
 " hexokinase settings
 let g:Hexokinase_highlighters = [ 'backgroundfull' ]
@@ -109,12 +109,12 @@ let g:Hexokinase_optInPatterns = [
 " Editing shortcuts
 nnoremap <CR> o<Esc>
 nnoremap <BS> O<Esc>
-inoremap jk <Esc> " escape insert mode
-inoremap kj <Esc> " escape insert mode
-nmap <C-s> :up<CR> " quick save
-inoremap <C-s> <Esc><C-S> " quick save from insert mode
-nnoremap <leader>w :w !sudo tee %<CR> " sudo write trick
-nnoremap <leader>c :nohl<CR> " clear highlighting
+inoremap jk <Esc>" escape insert mode
+inoremap kj <Esc>" escape insert mode
+nmap <C-s> :up<CR>" quick save
+inoremap <C-s> <Esc><C-S>" quick save from insert mode
+nnoremap <leader>w :w !sudo tee %<CR>" sudo write trick
+nnoremap <leader>c :nohl<CR>" clear highlighting
 
 " Clipboard copy paste
 vnoremap <leader>y "+y
@@ -145,10 +145,10 @@ let g:netrw_liststyle=3
 
 " terminal mode stuff
 if has('nvim')
-    tnoremap <Esc> <C-\><C-n> " exit terminal mode insert mode with esc key
-    tnoremap <C-q><Esc> <Esc> " input esc key while in terminal mode
+    tnoremap <Esc> <C-\><C-n>" exit terminal mode insert mode with esc key
+    tnoremap <C-q><Esc> <Esc>" input esc key while in terminal mode
     highlight! link TermCursor Cursor
-    highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15 " style the terminal cursor
+    highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15" style the terminal cursor
 endif
 
 nnoremap <leader>v :vsplit \| :terminal<CR>

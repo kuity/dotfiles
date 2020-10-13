@@ -54,6 +54,6 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-xrandr --output DP-4 --scale 0.7x0.7
+xrandr --output DP-4 --scale 0.8x0.8
 picom -f &
 exec dwm
