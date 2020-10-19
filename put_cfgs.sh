@@ -21,7 +21,7 @@ cp .tmux.conf $HOME/
 
 # zsh
 echo "Putting zsh files"
-cp oh_my_zsh/* $ZSH_CUSTOM/
+sudo cp oh_my_zsh/* $ZSH_CUSTOM/
 
 # X 
 echo "Putting X config"
