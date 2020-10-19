@@ -23,6 +23,7 @@ set splitright
 set background=dark
 set noshowmode " Not required if using lightline
 set laststatus=2 " statusline
+set diffopt+=vertical
 
 " Colors
 if (has("nvim"))
@@ -159,5 +160,7 @@ if has('nvim-0.5')
 lua <<EOF
 require'nvim_lsp'.pyls.setup{}
 require'nvim_lsp'.rls.setup{}
+require'nvim_lsp'.bashls.setup{}
+require'nvim_lsp'.metals.setup{}
 EOF
 endif
