@@ -118,6 +118,8 @@ nnoremap <leader>w :w !sudo tee %<CR>" sudo write trick
 nnoremap <leader>c :nohl<CR>" clear highlighting
 nnoremap L gt" goto next tab
 nnoremap H gT" goto previous tab
+nnoremap <TAB> :bnext<CR>" goto next buffer
+nnoremap <S-TAB> :bprev<CR>" goto next buffer
 
 " Clipboard copy paste
 vnoremap <leader>y "+y
