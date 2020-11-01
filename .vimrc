@@ -120,6 +120,7 @@ nnoremap L gt" goto next tab
 nnoremap H gT" goto previous tab
 nnoremap <TAB> :bnext<CR>" goto next buffer
 nnoremap <S-TAB> :bprev<CR>" goto next buffer
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Clipboard copy paste
 vnoremap <leader>y "+y
@@ -180,6 +181,10 @@ endfunction
 function! s:delete_buffers(lines)
     execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
+
+" custom commands
+let @r = '0f:bbbd0f:ldfyxhr,wwxx'
+let @t = '0f:bbbd0f:dF.df-df i,wwxx'
 
 " Use :BD command to delete buffers
 command! BD call fzf#run(fzf#wrap({
