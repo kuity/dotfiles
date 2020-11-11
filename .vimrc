@@ -121,6 +121,7 @@ nnoremap H gT" goto previous tab
 nnoremap <TAB> :bnext<CR>" goto next buffer
 nnoremap <S-TAB> :bprev<CR>" goto next buffer
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+vnoremap <leader>j ! python -m json.tool<CR>
 
 " Clipboard copy paste
 vnoremap <leader>y "+y
@@ -147,7 +148,7 @@ tnoremap <C-l> <C-\><C-N><C-w>l
 
 " netrw settings
 let g:netrw_winsize=25
-let g:netrw_liststyle=3
+let g:netrw_liststyle=0
 
 " terminal mode stuff
 if has('nvim')
