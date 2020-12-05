@@ -122,6 +122,7 @@ nnoremap <TAB> :bnext<CR>" goto next buffer
 nnoremap <S-TAB> :bprev<CR>" goto next buffer
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 vnoremap <leader>j ! python -m json.tool<CR>
+nnoremap <F6> :lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>
 
 " Clipboard copy paste
 vnoremap <leader>y "+y
