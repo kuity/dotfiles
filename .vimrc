@@ -1,4 +1,5 @@
 filetype plugin indent on
+" for highlighting
 syntax enable
 
 " no sound effects
@@ -44,6 +45,8 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 " Allow mouse to scroll
 set mouse=a
+" Setting for vimwiki to work
+set nocompatible
 
 " Colors
 if (has("nvim"))
@@ -76,6 +79,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'tjdevries/lsp_extensions.nvim'
 " Autocompletion framework for built-in LSP
 Plug 'nvim-lua/completion-nvim'
+" for managing a personal wiki within vim
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}
+Plug 'tbabej/taskwiki'
 endif
 call plug#end()
 
@@ -135,7 +141,7 @@ let g:Hexokinase_optInPatterns = [
 " Enable insert automatic parens
 let g:completion_enable_auto_paren = 1
 " code navigation shortcuts
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> g]    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
@@ -258,6 +264,17 @@ command! BD call fzf#run(fzf#wrap({
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
+
+" vimwiki settings
+let g:vimwiki_list = [{'path': '/home/kuity/projects/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_ext2syntax = {'.md':'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" Makes vimwiki markdown links as [text](text.md) instead of [text](text)
+let g:vimwiki_markdown_link_ext = 1
+let g:taskwiki_markup_syntax = 'markdown'
+let g:markdown_folding = 1
+
+nmap <leader>vt <Plug>VimwikiToggleListItem
+
 
 " Configuration refs
 " https://sharksforarms.dev/posts/neovim-rust/
